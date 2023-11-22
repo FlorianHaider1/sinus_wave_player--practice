@@ -6,7 +6,7 @@
 # - adding length of notes by adding a Number, i.e. 16, 8, 4, 2, 1
 # - adding pauses: P
 # - Notes then saved in tuples, (C2,8)(P,1)(Eb2,8) for (C2 Eightnote), (Full Pause), (Eb2 Eightnote) 
-# - Radiobutton for 60, 90, 120, 150 bpm, changing the length of notes accordingly
+# Instructions see all below
 
 import pyaudio
 import numpy as np
@@ -141,4 +141,7 @@ def playback(song, times):
         x += 1
     player.audio.terminate()
 
-playback(song_3, 1)
+# To play back song: 
+# 1) Below put the choosen Song: song_1 = korobeiniki, song_2 = the shire, song_3 = katyusha, [to be implemented: song_4 = war ensemble] 
+# 2) Number behind the song is the times the song is being played
+playback(song_1, 2)
