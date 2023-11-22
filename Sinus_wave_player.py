@@ -144,4 +144,4 @@ def playback(song, times):
 # To play back song: 
 # 1) Below put the choosen Song: song_1 = korobeiniki, song_2 = the shire, song_3 = katyusha, [to be implemented: song_4 = war ensemble] 
 # 2) Number behind the song is the times the song is being played
-playback(song_1, 2)
+playback(song_3, 1)
