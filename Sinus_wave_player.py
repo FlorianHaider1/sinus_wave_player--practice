@@ -81,39 +81,52 @@ def bpm_to_modifier(bpm):
         return bpm_mod
 
 def note_value_to_duration(note_value, bpm):
-    if note_value == 1:
-        duration = 1*bpm_to_modifier(bpm)
-        return duration 
-    if note_value == 2:
-        duration = 0.5*bpm_to_modifier(bpm)
-        return duration
-    if note_value == 4:
-        duration = 0.25*bpm_to_modifier(bpm)
-        return duration
-    if note_value == 8:
-        duration = 0.125*bpm_to_modifier(bpm)
-        return duration
-    if note_value == 16:
-        duration = 0.0625*bpm_to_modifier(bpm)
-        return duration
-    if note_value == 32:
-        duration = 0.03125*bpm_to_modifier(bpm)
-        return duration
+    duration = (1/note_value)*bpm_to_modifier(bpm)
+    return duration 
 
-# tone = "C5"
-# freq = frequency_to_tone(tone)
-# print(f"Tone {tone}")
-# duration = 3
-# play_tone(freq, duration)    
+war_ensemble_intro = [
+    ("G5", 16), ("F5", 16), ("E5", 16), ("E5", 16),("E5", 16), ("E5", 16),
+    ("G5", 16), ("F5", 16), ("E5", 16), ("E5", 16),("E5", 16), ("E5", 16),
+    ("G5", 16), ("F5", 16), ("E5", 16), ("E5", 16),("E5", 16), ("E5", 16),
+]
 
-test_song = ("C5",1), ("D5",4), ("E5",4),("P",1), ("F5",1) 
+katyusha = [
+    ("E4", 4), ("F#4", 4), ("G4", 4), ("F#4", 4), 
+    ("E4", 4), ("D4", 4), ("E4", 2), ("P", 2), 
+    ("E4", 4), ("F#4", 4), ("G4", 4), ("F#4", 4), 
+    ("E4", 4), ("D4", 4), ("C#4", 2), ("P", 2), 
+    ("D4", 4), ("E4", 4), ("F#4", 4), ("E4", 4), 
+    ("D4", 4), ("C#4", 4), ("B3", 2), ("P", 2), 
+    ("A3", 4), ("B3", 4), ("C#4", 4), ("D4", 4),
+    ("E4", 4), ("C#4", 4), ("A3", 2), ("P", 2)
+]
 
-bpm = 60
+korobeiniki = [
+    ("E5", 1), ("B4", 2), ("C5", 2), ("D5", 1), ("C5", 2), ("B4", 2), ("A4", 1), ("A4", 2),("C5", 2), ("E5", 1), 
+    ("D5", 2), ("C5", 2), ("B4", 1), ("B4", 2), ("C5", 2), ("D5", 1), ("E5", 1), ("C5", 1), ("A4", 2), ("A4", 0.5), 
+    ("P",4), ("D5", 2), ("F5", 2), ("A5", 0.5), ("G5", 1), ("F5", 1), ("E5", 1), ("P",4),("C5", 2), ("E5", 0.5), 
+    ("D5",2), ("C5", 2), ("B4",1),("B4", 2), ("C5", 1), ("D5", 1), ("E5", 1), ("C5", 1),("A4", 1), ("A4", 0.5)  
+    ]
 
-print(note_value_to_duration(2, bpm))
+hobbit = [
+    ("C4", 2), ("D4", 2), ("E4", 0.75), ("G4", 2), 
+    ("E4", 0.75), ("D4", 2), ("C4", 0.75), ("G4", 2), 
+    ("E4", 2), ("C4", 2), ("D4", 4), ("P", 4), 
+    ("C4", 2), ("D4", 2), ("E4", 0.75), ("G4", 2), 
+    ("E4", 0.75), ("D4", 2), ("C4", 0.75), ("G4", 2), 
+    ("E4", 2), ("C4", 2), ("D4", 4), ("P", 4)
+]
 
-for note, note_value in test_song:
-    freq = frequency_to_tone(note)
-    duration = note_value_to_duration(note_value, bpm)
-    print(f"Tone {note} with time {note_value}")
-    play_tone(freq, duration)  
+bpm = 120
+times = 5
+current = 0
+
+song = korobeiniki
+
+while current < times:
+    for note, note_value in song:
+        freq = frequency_to_tone(note)
+        duration = note_value_to_duration(note_value, bpm)
+        print(f"Tone {note} with time {note_value}")
+        play_tone(freq, duration)  
+    current += 1
