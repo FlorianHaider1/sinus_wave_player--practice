@@ -60,7 +60,8 @@ def frequency_to_tone(tone):
         "G#5": 830.61, "Ab5": 830.61,
         "A5": 880.00,
         "A#5": 932.33, "Bb5": 932.33,
-        "B5": 987.77
+        "B5": 987.77,
+        "P": 0
     }
     
     return key_board.get(tone)
@@ -105,7 +106,7 @@ def note_value_to_duration(note_value, bpm):
 # duration = 3
 # play_tone(freq, duration)    
 
-test_song = ("C5",1), ("D5",4), ("E5",4), ("F5",1) 
+test_song = ("C5",1), ("D5",4), ("E5",4),("P",1), ("F5",1) 
 
 bpm = 60
 
